@@ -1,2 +1,2 @@
 # terminal_decorator
-Just for fun.
+Get your name in bash terminal when session starts.
