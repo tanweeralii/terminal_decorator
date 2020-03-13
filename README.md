@@ -9,7 +9,7 @@ A simple bash program to write a 4 character string in bash whenever session sta
 ````
 ## To Run
 ````
-1. $ sudo decorator       \\From anywhere
+1. $ sudo decorator
 2. Write the 4 characters you want on screen.
 3. Choose the color of the font.
 4. Done, Now open a new terminal.
