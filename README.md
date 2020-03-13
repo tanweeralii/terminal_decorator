@@ -9,5 +9,5 @@ A simple bash program to write a 4 character string in bash whenever session sta
 ````
 ## To Run
 ````
-1. $ sudo decorator \\From anywhere
+1. $ sudo decorator       \\From anywhere
 ````
