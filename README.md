@@ -7,3 +7,7 @@ A simple bash program to write a 4 character string in bash whenever session sta
 2. $ cd terminal_decorator
 3. $ ./install.sh
 ````
+## To Run
+````
+1. $ sudo decorator \\From anywhere
+````
