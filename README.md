@@ -1,5 +1,5 @@
 # decorator
-A simple bash program to write a 4 character string in bash whenever session starts.
+A simple bash program to get a 4 character string in bash whenever session starts.
 
 ## Installation
 ````
