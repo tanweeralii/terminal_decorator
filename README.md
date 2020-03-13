@@ -1,4 +1,4 @@
-# terminal_decorator
+# decorator
 A simple bash program to write a 4 character string in bash whenever session starts.
 
 ## Installation
