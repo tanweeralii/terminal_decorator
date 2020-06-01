@@ -37,9 +37,7 @@ function B(){
 				fi
 			elif [ $i -eq 1 ] && [ $j -eq 9 ]
 			then echo -n '\';
-			elif [ $i -eq 1 ] && [ $j -eq 0 ]
-			then echo -n '|';
-			elif [ $i -eq 9 ] && [ $j -eq 0 ]
+			elif ([ $i -eq 1 ] && [ $j -eq 0 ]) || ([ $i -eq 9 ] && [ $j -eq 0 ])
 			then echo -n '|';
 			elif [ $i -eq 9 ] && [ $j -eq 9 ]
 			then echo -n '/';
