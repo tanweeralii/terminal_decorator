@@ -168,12 +168,12 @@ function E(){
 			if [ $i -eq 0 ] || [ $i -eq 10 ] || [ $i -eq 5 ]
 			then
 				if [ $j -ge 0 ] && [ $j -le 7 ]
-				then echo -n '%';
+				then echo -n '#';
 				else echo -n ' ';
 				fi
 			else
 				if [ $j -eq 0 ]
-				then echo -n '%';
+				then echo -n '#';
 				else echo -n ' ';
 				fi
 			fi
