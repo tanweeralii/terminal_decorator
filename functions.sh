@@ -64,36 +64,27 @@ function C(){
 				then echo -n '%';
 				else echo -n ' ';
 				fi
-			elif [ $i -eq 1 ]
-			then 
-				if [ $j -eq 1 ]
-				then echo -n '/';
-				elif [ $j -eq 9 ]
-				then echo -n '\';
-				else echo -n ' ';
-				fi
 			elif [ $i -eq 2 ] || [ $i -eq 8 ] 
-                        then 
-                                if [ $j -eq 0 ] || [ $j -eq 10 ]
-                                then echo -n '%';
-                                else echo -n ' ';
-                                fi
-			elif [ $i -eq 9 ] 
-                        then 
-                                if [ $j -eq 1 ]
-                                then echo -n '\';
-                                elif [ $j -eq 9 ]
-                                then echo -n '/';
-                                else echo -n ' ';
-                                fi
-			elif [ $i -gt 2 ] && [ $i -lt 8 ]
+            then 
+                if [ $j -eq 0 ] || [ $j -eq 10 ]
+                then echo -n '%';
+                else echo -n ' ';
+                fi
+            elif [ $i -gt 2 ] && [ $i -lt 8 ]
 			then 
 				if [ $j -eq 0 ]
 				then echo -n '|';
 				else echo -n ' ';
 				fi
+			elif ([ $i -eq 1 ] && [ $j -eq 1 ]) || ([ $i -eq 9 ] && [ $j -eq 9 ])
+			then 
+				echo -n '/';
+			elif ([ $j -eq 9 ] && [ $i -eq 1 ]) || ([ $i -eq 9 ] && [ $j -eq 1 ])
+			then 
+				echo -n '\';	
+			
+			else echo -n ' ';
 			fi
-
 		done
 		echo -e '';
 	done
