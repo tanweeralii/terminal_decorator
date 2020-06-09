@@ -94,59 +94,16 @@ function D(){
 	do
 		for j in {0..10}
 		do
-			if [ $i -eq 0 ]
-			then 
-				if [ $j -ge 1 ] && [ $j -le 7 ]
-				then echo -n '%';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 1 ]
-			then 
-				if [ $j -eq 0 ]
-				then echo -n '|';
-				elif [ $j -eq 8 ]
-				then echo -n '\';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 2 ]
-			then
-				if [ $j -eq 0 ]
-				then echo -n '|';
-				elif [ $j -eq 9 ]
-				then echo -n '\';
-				else echo -n ' ';
-				fi
-			elif [ $i -ge 3 ] && [ $i -le 7 ]
-			then
-				if [ $j -eq 0 ] || [ $j -eq 10 ]
-				then echo -n '|';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 8 ]
-			then 
-				if [ $j -eq 0 ]
-				then echo -n '|';
-				elif [ $j -eq 9 ]
-				then echo -n '/';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 9 ]
-			then
-				if [ $j -eq 0 ]
-                                then echo -n '|';       
-                                elif [ $j -eq 8 ]
-                                then echo -n '/';       
-                                else echo -n ' ';       
-				fi
-			elif [ $i -eq 10 ]
-                        then
-                                if [ $j -ge 1 ] && [ $j -le 7 ]
-                                then echo -n '%';
-                                else echo -n ' ';
-                                fi
-
-			fi
-
+			if ([ $i -eq 0 ] && [ $j -ge 1 ] && [ $j -le 7 ]) || ([ $i -eq 10 ] && [ $j -ge 1 ] && [ $j -le 7 ]) || ([ $i -eq 10 ] && [ $j -ge 1 ] && [ $j -le 7 ])
+			then echo -n '%';
+			elif ([ $i -eq 1 ] && [ $j -eq 0 ]) || ([ $i -eq 2 ] && [ $j -eq 0 ]) || ([ $i -eq 2 ] && [ $j -eq 9 ]) || ([ $i -eq 8 ] && [ $j -eq 0 ]) || ([ $i -eq 9 ] && [ $j -eq 0 ]) || ([ $i -ge 3 ] && [ $i -le 7 ] && ([ $j -eq 0 ] || [ $j -eq 10 ]))
+			then echo -n '|';
+			elif ([ $j -eq 8 ] && [ $i -eq 1 ])
+			then echo -n '\';
+			elif ([ $i -eq 8 ] && [ $j -eq 9 ]) || ([ $i -eq 9 ] && [ $j -eq 8 ])
+			then echo -n '/';
+            else echo -n ' ';
+            fi
 		done
 		echo -e '';
 	done
