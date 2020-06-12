@@ -37,16 +37,11 @@ function B(){
 				fi
 			elif [ $i -eq 1 ] && [ $j -eq 9 ]
 			then echo -n '\';
-			elif ([ $i -eq 1 ] && [ $j -eq 0 ]) || ([ $i -eq 9 ] && [ $j -eq 0 ])
+			elif ([ $i -eq 1 ] && [ $j -eq 0 ]) || ([ $i -eq 9 ] && [ $j -eq 0 ]) || ([ $j -eq 0 ] || [ $j -eq 10 ] && [ $i -le 8 ] && [ $i -gt 1 ])
 			then echo -n '|';
 			elif [ $i -eq 9 ] && [ $j -eq 9 ]
 			then echo -n '/';
-			else
-				if [ $j -eq 0 ] || [ $j -eq 10 ] && [ $i -le 8 ] && [ $i -gt 1 ]
-				then
-					echo -n '|';
-				else echo -n ' ';
-				fi
+			else echo -n ' ';
 			fi
 		done
 		k=$((k-1))
@@ -198,18 +193,18 @@ function G(){
 function H(){
         for i in {0..10}
         do
-                for j in {0..10}
-                do
-			if [ $i -eq 5 ]
-			then echo -n '=';
-			else
-				if [ $j -eq 0 ] || [ $j -eq 10 ] || [ $j -eq 1 ] || [ $j -eq 9 ]
-				then echo -n '|';
-				else echo -n ' ';
+           	for j in {0..10}
+            do
+				if [ $i -eq 5 ]
+				then echo -n '=';
+				else
+					if [ $j -eq 0 ] || [ $j -eq 10 ] || [ $j -eq 1 ] || [ $j -eq 9 ]
+					then echo -n '|';
+					else echo -n ' ';
+					fi
 				fi
-			fi
-                done
-		echo -e '';
+            done
+			echo -e '';
         done
 }
 function I(){
