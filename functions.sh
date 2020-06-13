@@ -53,31 +53,14 @@ function C(){
 	do
 		for j in {0..10}
 		do
-			if [ $i -eq 0 ] || [ $i -eq 10 ]
-			then 
-				if [ $j -gt 1 ] && [ $j -lt 9 ]
-				then echo -n '%';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 2 ] || [ $i -eq 8 ] 
-            then 
-                if [ $j -eq 0 ] || [ $j -eq 10 ]
-                then echo -n '%';
-                else echo -n ' ';
-                fi
-            elif [ $i -gt 2 ] && [ $i -lt 8 ]
-			then 
-				if [ $j -eq 0 ]
-				then echo -n '|';
-				else echo -n ' ';
-				fi
+			if (([ $i -eq 0 ] || [ $i -eq 10 ]) && [ $j -gt 1 ] && [ $j -lt 9 ]) || (([ $i -eq 2 ] || [ $i -eq 8 ]) && ([ $j -eq 0 ] || [ $j -eq 10 ]) )
+			then echo -n '%';
+            elif [ $i -gt 2 ] && [ $i -lt 8 ] && [ $j -eq 0 ]
+			then echo -n '|';
 			elif ([ $i -eq 1 ] && [ $j -eq 1 ]) || ([ $i -eq 9 ] && [ $j -eq 9 ])
-			then 
-				echo -n '/';
+			then echo -n '/';
 			elif ([ $j -eq 9 ] && [ $i -eq 1 ]) || ([ $i -eq 9 ] && [ $j -eq 1 ])
-			then 
-				echo -n '\';	
-			
+			then echo -n '\';	
 			else echo -n ' ';
 			fi
 		done
