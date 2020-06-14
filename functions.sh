@@ -115,60 +115,20 @@ function F(){
 function G(){
         for i in {0..10}
         do
-                for j in {0..10}
-                do
-			if [ $i -eq 0 ] || [ $i -eq 10 ]
-                        then
-                                if [ $j -gt 1 ] && [ $j -lt 9 ]
-                                then echo -n '%';
-                                else echo -n ' ';
-                                fi
-                        elif [ $i -eq 1 ]
-                        then
-                                if [ $j -eq 1 ]
-                                then echo -n '/';
-                                elif [ $j -eq 9 ]
-                                then echo -n '\';
-                                else echo -n ' ';
-                                fi
-                        elif [ $i -eq 2 ] || [ $i -eq 8 ]
-                        then
-                                if [ $j -eq 0 ] || [ $j -eq 10 ]
-                                then echo -n '%';
-                                else echo -n ' ';
-                                fi
-                        elif [ $i -eq 9 ]
-                        then
-                                if [ $j -eq 1 ]
-                                then echo -n '\';
-                                elif [ $j -eq 9 ]
-                                then echo -n '/';
-                                else echo -n ' ';
-                                fi
-                        elif [ $i -gt 2 ] && [ $i -lt 6 ]
-                        then
-                                if [ $j -eq 0 ]
-                                then echo -n '|';
-                                else echo -n ' ';
-                                fi
-			elif [ $i -eq 7 ]
-			then
-				if [ $j -eq 10 ] || [ $j -eq 0 ]
-				then echo -n '%';
-				elif [ $j -eq 7 ]
-				then echo -n '|';
-				else echo -n ' ';
-				fi
-                        
-			elif [ $i -eq 6 ]
-			then
-				if [ $j -ge 7 ]
+            for j in {0..10}
+            do
+				if (([ $i -eq 0 ] || [ $i -eq 10 ]) && [ $j -gt 1 ] && [ $j -lt 9 ]) || (([ $i -eq 2 ] || [ $i -eq 8 ]) && [ $j -eq 0 ] || [ $j -eq 10 ]) || ([ $i -eq 7 ] && ([ $j -eq 10 ] || [ $j -eq 0 ]) )
+            	then echo -n '%';                 
+                elif ([ $i -eq 1 ] && [ $j -eq 1 ]) || ([ $j -eq 9 ] && [ $i -eq 9 ])
+                then echo -n '/';
+                elif ([ $j -eq 9 ] && ([ $i -eq 9 ] || [ $i -eq 1 ])
+                then echo -n '\';
+                elif ([ $i -gt 2 ] && [ $i -lt 6 ] && [ $j -eq 0 ]) || ([ $i -eq 7 ] && [ $j -eq 7 ]) || ([ $j -eq 0 ] && [ $i -eq 6 ])
+                then echo -n '|';
+				elif [ $i -eq 6 ] && [ $j -ge 7 ]
 				then echo -n '_';
-				elif [ $j -eq 0 ]
-				then echo -n '|';
 				else echo -n ' ';
-				fi
-			fi	
+				fi	
                 done
 		echo -e '';
         done
