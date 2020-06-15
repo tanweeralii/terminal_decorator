@@ -170,40 +170,19 @@ function I(){
 function J(){
         for i in {0..10}
         do
-                for j in {0..10}
-                do
-			if [ $i -eq 0 ]
+            for j in {0..10}
+            do
+			if [ $i -eq 0 ] || ([ $i -eq 10 ] && if [ $j -eq 2 ])
 			then echo -n '=';
-			elif [ $i -ge 1 ] && [ $i -le 7 ]
-			then 
-				if [ $j -eq 5 ]
-				then echo -n '|';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 8 ]
-			then
-				if [ $j -eq 4 ]
-				then echo -n '/';
-				elif [ $j -eq 0 ]
-				then echo -n '|';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 9 ]
-			then 
-				if [ $j -eq 3 ]
-				then echo -n '/';
-				elif [ $j -eq 1 ]
+			elif ([ $i -ge 1 ] && [ $i -le 7 ] && [ $j -eq 5 ]) || ([ $i -eq 8 ] && [ $j -eq 0 ])
+			then echo -n '|';
+			elif ([ $i -eq 8 ] && [ $j -eq 4 ]) || ([ $i -eq 9 ] && [ $j -eq 3 ])
+			then echo -n '/';
+			elif [ $i -eq 9 ] && [ $j -eq 1 ]
 				then echo -n '\';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 10 ]
-			then 
-				if [ $j -eq 2 ]
-				then echo -n '=';
-				else echo -n ' ';
-				fi
+			else echo -n ' ';
 			fi
-                done
+            done
 		echo -e '';
         done
 }
