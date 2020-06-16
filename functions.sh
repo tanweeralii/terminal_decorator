@@ -189,98 +189,19 @@ function J(){
 function K(){
         for i in {0..10}
         do
-                for j in {0..6}
-                do
-			if [ $i -eq 0 ]
-			then 
-				if [ $j -eq 6 ]
-				then echo -n '/';
-				elif [ $j -eq 0 ]
-				then echo -n '|';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 1 ]
-                        then
-                                if [ $j -eq 5 ]
-                                then echo -n '/';               
-                                elif [ $j -eq 0 ]
-                                then echo -n '|';               
-                                else echo -n ' ';                       
-                                fi	
-			elif [ $i -eq 2 ]
-                        then
-                                if [ $j -eq 4 ]
-                                then echo -n '/';               
-                                elif [ $j -eq 0 ]
-                                then echo -n '|';               
-                                else echo -n ' ';                       
-				fi
-			elif [ $i -eq 3 ]
-                        then
-                                if [ $j -eq 3 ]
-                                then echo -n '/';               
-                                elif [ $j -eq 0 ]
-                                then echo -n '|';               
-                                else echo -n ' ';                       
-                                fi
-			elif [ $i -eq 4 ]
-                        then
-                                if [ $j -eq 2 ]
-                                then echo -n '/';
-                                elif [ $j -eq 0 ]
-                                then echo -n '|';
-                                else echo -n ' ';
-                                fi
-			elif [ $i -eq 5 ]
-			then
-				if [ $j -eq 0 ]
-				then echo -n '|';
-				elif [ $j -eq 1 ]
-				then echo -n '=';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 6 ]
-			then 
-				if [ $j -eq 2 ]
-				then echo -n '\';
-				elif [ $j -eq 0 ]
-				then echo -n '|';
-				else echo -n ' ';
-				fi
-			elif [ $i -eq 7 ]
-                        then
-                                if [ $j -eq 3 ]
-                                then echo -n '\';
-                                elif [ $j -eq 0 ]
-                                then echo -n '|';
-                                else echo -n ' ';
-                                fi
-			elif [ $i -eq 8 ]
-                        then
-                                if [ $j -eq 4 ]
-                                then echo -n '\';
-                                elif [ $j -eq 0 ]
-                                then echo -n '|';
-                                else echo -n ' ';
-                                fi
-			elif [ $i -eq 9 ]
-                        then
-                                if [ $j -eq 5 ]
-                                then echo -n '\';
-                                elif [ $j -eq 0 ]
-                                then echo -n '|';
-                                else echo -n ' ';
-                                fi
-			elif [ $i -eq 10 ]
-                        then
-                                if [ $j -eq 6 ]
-                                then echo -n '\';
-                                elif [ $j -eq 0 ]
-                                then echo -n '|';
-                                else echo -n ' ';
-                                fi
+            for j in {0..6}
+            do
+			if ([ $i -eq 0 ] && [ $j -eq 6 ]) || ([ $i -eq 1 ] && [ $j -eq 5 ]) || ([ $i -eq 2 ] && [ $j -eq 4 ]) || ([ $i -eq 3 ] && [ $j -eq 3 ]) || ([ $i -eq 4 ] && [ $j -eq 2 ])
+			then echo -n '/';
+			elif ([ $j -eq 0 ] && [ $i -eq 0 ]) || ([ $i -eq 1 ] && [ $j -eq 0 ]) || ([ $i -eq 2 ] && [ $j -eq 0 ]) || ([ $j -eq 0 ] && [ $i -eq 3 ]) || ([ $i -eq 4 ] && [ $j -eq 0 ]) || ([ $i -eq 5 ] && [ $j -eq 0 ]) || ([ $j -eq 0 ] && [ $i -eq 6 ]) || ( [ $i -eq 7 ] && [ $j -eq 0 ]) || ([ $j -eq 0 ] && [ $i -eq 8 ]) || ([ $j -eq 0 ] && [ $i -eq 9 ]) || ([ $j -eq 0 ] && [ $i -eq 10 ])
+			then echo -n '|';
+			elif ([ $i -eq 5 ] && [ $j -eq 1 ])
+			then echo -n '=';
+			elif ([ $i -eq 6 ] && [ $j -eq 2 ]) ||([ $j -eq 3 ] &&  [ $i -eq 7 ]) || ([ $i -eq 8 ] && [ $j -eq 4 ]) || ([ $i -eq 9 ] && [ $j -eq 5 ]) || ([ $i -eq 10 ] && [ $j -eq 6 ])
+			then echo -n '\';
+            else echo -n ' ';
 			fi
-                done
+            done
 		echo -e '';
         done
 }
